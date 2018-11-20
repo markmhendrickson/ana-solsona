@@ -1,0 +1,809 @@
+@import url('https://fonts.googleapis.com/css?family=Cantata+One|Montserrat:200,300,400,500');
+
+@color-dark: #210402;
+@color-light-pink: #FADCDA;
+
+::selection {
+  background: @color-light-pink;
+}
+
+.columns {
+  display: flex;
+  flex-wrap: wrap;
+  
+  >* {
+    width: 100%;
+  }
+  
+  @media (min-width: 800px) {
+    box-sizing: border-box;
+    flex-wrap: nowrap;
+    
+    >* {
+      overflow-y: auto;
+      width: 50%;
+    }
+  }
+}
+
+.viewport {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+a {
+  color: @color-dark;
+  font-weight: 500;
+  text-decoration: none;
+  
+  &.button {
+    border: 1px solid #D59A99;
+    border-radius: 16px;
+    display: block;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 2.62px;
+    margin: 3em;
+    margin-top: 0;
+    padding: 0.5em 1em;
+    text-align: center;
+    text-transform: uppercase;
+  }
+}
+
+body {
+  color: @color-dark;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  text-rendering: geometricPrecision;
+  transition: 0.5s background;
+  
+  &.project.scrolled {
+    color: black;
+  }
+  
+  &.dark-project.scrolled, &.light-project:not(.scrolled) {
+    h1, h2, p, div.subheader, div.summary, nav a:not(.logo), a.next {
+      color: white;
+    }
+    
+    div.summary ul li:not(:first-child) {
+      border-color: rgba(255,255,255,0.25);
+    }
+  }
+  
+  &.affinity-petcare-comunimals.scrolled {
+    background: #EA9375;
+  }
+  
+  &.bread-butter:not(.scrolled) {
+    background: #F7CAC9;
+    
+    nav img {
+      filter: invert(100%);
+    }
+  }
+  
+  &.integral:not(.scrolled) {
+    background: #F7CAC9;
+    
+    nav img {
+      filter: invert(100%);
+    }
+  }
+  
+  &.mythology:not(.scrolled) {
+    background: #CBC7C2;
+  }
+  
+  &.pippa-lynn.scrolled {
+    background: #CAF2F2;
+  }
+  
+  &.that-brand:not(.scrolled) {
+    background: #EDCDC2;
+    
+    nav img {
+      filter: invert(100%);
+    }
+  }
+
+  &.wines-of-chile:not(.scrolled) {
+    background: #D59A99;
+  }
+}
+
+body.index {
+  h2 {
+    color: #F8D1CF;
+    text-align: center;
+  }
+  
+  @media (max-width: 799px) {
+    section.who, section.what, section.contact {
+      margin-top: 4em;
+    }
+  }
+  
+  @media (min-width: 800px) {
+    section.who, section.contact, section.what, section.work {
+      display: none;
+    }
+  }
+}
+
+a.next {
+  bottom: 20%;
+  display: block;
+  font-weight: 400;
+  position: fixed;
+  right: 4em;
+  text-orientation: sideways;
+  padding: 2em;
+  text-transform: uppercase;
+  transform: rotate(180deg);
+  transition: 0.5s color;
+  writing-mode: vertical-rl;
+  z-index: 100;
+  
+  @media (max-width: 799px) {
+    display: none;
+  }
+  
+  &:after {
+    content: "";
+    background: #FADCDA;
+    width: 60%;
+    height: 2px;
+    position: absolute;
+    display: block;
+    top: calc(50% - 1px);
+    left: -2em;
+  }
+}
+
+div.subheader {
+  font-size: 13px;
+  line-height: 1.5em;
+  margin: auto;
+  max-width: 700px;
+  letter-spacing: 0.73px;
+  text-align: left;
+  transition: 0.5s color;
+  
+  @media (min-width: 800px) {
+    font-size: 20px;
+    margin-top: 40px;
+    text-align: center;
+  }
+}
+
+h1, h2 {
+  color: #F8D1CF;
+  font-family: 'Cantata One', serif;
+  text-align: center;
+}
+
+h1 {
+  font-size: 29px;
+  font-weight: normal;
+  line-height: 1.2em;
+  margin: auto;
+  max-width: 896px;
+  transition: 0.5s color;
+  
+  @media (min-width: 800px) {
+    font-size: 3.5em;
+  }
+}
+  
+h2 {
+  font-size: 29px;
+  font-weight: normal;
+  line-height: 1.2em;
+  margin-bottom: 28px;
+}
+
+nav {
+  display: none;
+  position: fixed;
+  font-size: 0.8em;
+  left: 48px;
+  text-align: center;
+  top: 48px;
+  z-index: 100;
+  
+  @media (min-width: 800px) {
+    display: block;
+  }
+  
+  img {
+    display: block;
+    margin: auto;
+    transition: 0.5s filter;
+    width: 40px;
+    
+    &:first-child {
+      margin-bottom: 3em;
+    }
+  
+    &:not(:first-child) {
+      margin-bottom: 3em;
+      width: 13px;
+      
+      @media (max-height: 775px) {
+        display: none;
+      }
+    }
+  }
+  
+  a:not(.logo) {
+    display: block;
+    font-weight: 400;
+    margin: auto;
+    letter-spacing: 2.13px;
+    padding-bottom: 2em;
+    position: relative;
+    text-orientation: sideways;
+    text-transform: uppercase;
+    transition: 0.5s color, 0.5s opacity;
+    writing-mode: vertical-rl;
+    z-index: 50;
+    
+    &.selected {
+      font-weight: 500;
+    
+      &:before {
+        background: url(https://s3.eu-west-3.amazonaws.com/anasolsona/nav-selected.svg) no-repeat center center;
+        background-size: contain;
+        content: "";
+        left: 50%;
+        height: 100%;
+        position: absolute;
+        top: ~"calc(50% - 1em)";
+        transform: translateX(-50%) translateY(-50%);
+        width: 100%;
+        z-index: 45;
+      }
+    }
+  }
+}
+
+p {
+  font-size: 13px;
+  letter-spacing: 2.13px;
+  line-height: 1.5em;
+  transition: 0.5s color;
+  
+  @media (min-width: 800px) {
+    font-size: 15px;
+    line-height: 32px;
+  }
+}
+  
+section.who {
+  >div {
+    padding: 0 2em;
+
+    @media (min-width: 800px) {
+      padding: 6em 4em 6em 18em;
+    }
+  }
+}
+
+body.who section.who>div {
+  @media (max-width: 799px) {
+    margin: 2em auto;
+  }
+}
+
+section.contact {
+  .viewport();
+  align-items: center;
+  box-sizing: border-box;
+  color: #F8D1CF;
+  display: flex;
+  margin: auto;
+  padding: 2em;
+  text-align: center;
+  
+  h1, h2 {
+    font-size: 5em;
+    margin-top: 0;
+    
+    @media (min-width: 800px) {
+      font-size: 9em;
+    }
+  }
+  
+  div {
+    font-family: 'Cantata One', serif;
+    font-size: 16px;
+    max-width: 500px;
+    
+    @media (min-width: 800px) {
+      font-size: 20px;
+    }
+    
+    &.email {
+      margin-top: 1em;
+    }
+  }
+}
+
+div.carousel {
+  overflow: auto;
+  width: 100%;
+  
+  ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0 2em;
+    width: fit-content;
+    
+    li {
+      box-sizing: border-box;
+      margin-bottom: 1em;
+      width: ~"calc(90vw - 4em)";
+      
+      &:not(:last-child) {
+        margin-right: 2em;
+      }
+      
+      img {
+        height: 60vh;
+        object-fit: cover;
+        width: 100%;
+      }
+    }
+  }
+}
+
+section.intro {
+  .columns();
+  .viewport();
+  text-align: center;
+  
+  @media (min-width: 800px) {
+    align-items: center;
+    height: auto;
+    padding: 0;
+  }
+  
+  >div {
+    padding: 2em;
+    
+    >* {
+      display: block;
+      margin: auto;
+      width: 100%;
+
+      @media (min-width: 800px) {
+        width: 18em;
+      }
+    }
+  }
+  
+  img.emblem, img.wordmark {
+    box-sizing: border-box;
+    max-width: 18em;
+    padding: 0 2em;
+  }
+  
+  div.description {
+    font-weight: 300;
+    letter-spacing: 4px;
+    line-height: 1.5em;
+    margin-top: 3.2em;
+    
+    @media (min-width: 800px) {
+      font-size: 1.25em;
+    }
+    
+    span {
+      display: block;
+      color: @color-light-pink;
+      font-weight: 500;
+    }
+  }
+  
+}
+
+section.intro, section.who {
+  >* {
+    box-sizing: border-box;
+    
+    @media (min-width: 800px) {
+      width: 50%;
+    }
+  }
+  
+  img.portrait {
+    height: 60vh;
+    margin-top: 1em;
+    max-width: 100%;
+    object-fit: cover;
+    width: 100%;
+
+    @media (min-width: 800px) {
+      height: 100vh;
+      margin: 0;
+      width: 50%;
+    }
+  }
+}
+
+body.who, body.what, body.work, body.project {
+  section.who, section.what, section.work, section.project {
+    h2 {
+      display: none;
+    }
+
+    @media (max-width: 799px) {
+      h1, h2 {
+        display: block;
+        margin: 1.5em 0;
+        order: 1;
+      }
+
+      >div {
+        order: 3;
+      }
+
+      img.portrait {
+        order: 2;
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+section.project {
+  box-sizing: border-box;
+  padding: 0 1.5em;
+  text-align: center;
+  margin-bottom: 32px;
+  
+  @media (min-width: 800px) {
+    margin-bottom: 64px;
+    padding: 6em 6em 0 12em;
+  }
+  
+  h1 {
+    color: black;  
+  }
+  
+  div.summary {
+    align-items: start;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 2em;
+    transition: 0.5s color;
+    
+    @media (min-width: 800px) {
+      flex-wrap: nowrap;
+      margin-top: 6em;
+    }
+  
+    div.main, img.main, ul {
+      position: relative;
+      width: 100%;
+      
+      @media (min-width: 800px) {
+        width: 50%;
+      }
+      
+      img {
+        width: 100%;
+        
+        &:first-of-type {
+          position: absolute;
+          left: 20%;
+          top: 20%;
+          width: 60%;
+        }
+      }
+    }
+    
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      
+      @media (max-width: 799px) {
+        margin-top: 2em;
+      }
+      
+      @media (min-width: 800px) {
+        padding-left: 4em;
+      }
+      
+      li {
+        font-size: 13px;
+        line-height: 1.5em;
+        padding: 16px 0;
+        text-align: left;
+        
+        @media (min-width: 800px) {
+          font-size: 18px;
+          padding: 32px 0;
+        }
+        
+        div:first-of-type {
+          opacity: 0.5;
+        }
+        
+        &:not(:first-child) {
+          border-top: 1px solid rgba(0,0,0,0.1);
+        }
+      }
+    }
+  }
+}
+
+section.sample {
+  h2, p {
+    box-sizing: border-box;
+    color: black;
+    max-width: 1014px;
+    margin: auto;
+    padding: 0 24px;
+    text-align: left;
+    
+    &:not(:first-child) {
+      margin-top: 1em;
+    }
+  }
+  
+  h2 {
+    margin-bottom: 32px;  
+  }
+ 
+  p {
+    letter-spacing: -0.37px;
+    
+    @media (min-width: 800px) {
+      font-size: 18px;
+    }
+  }
+  
+  img {
+    box-sizing: border-box;
+    object-fit: contain;
+    width: 100%;
+    
+    @media (max-width: 799px) {
+      padding: 1.5em 0.75em;
+    }
+  }
+  
+  p + img, h2 + img {
+    @media (min-width: 800px) {
+      margin-top: 6em;
+    }
+  }
+  
+  >div {
+    padding: 2em 0;
+    
+    @media (min-width: 800px) {
+      padding: 10em;
+    }
+  }
+  
+  &.columns {
+    align-items: center;
+    display: flex;
+    
+    div, img {
+      box-sizing: border-box;
+    }
+    
+    div + img {
+      @media (min-width: 800px) {
+        padding: 6em;
+      }
+    }
+    
+    div, img {
+      @media (min-width: 800px) {
+        width: 50%;
+      }
+    }
+    
+    @media (min-width: 800px) {
+      >*:first-child {
+        padding-right: 2.5em;
+      }
+
+      >*:last-child {
+        padding-left: 2.5em;
+      }
+    }
+  }
+  
+  &.images img {
+    &:first-of-type {
+      border-left: 0;
+    }
+    
+    &:last-of-type {
+      border-right: 0;
+    }
+  }
+}
+
+section.what {
+  box-sizing: border-box;
+  
+  @media (min-width: 800px) {
+    padding: 9em;
+    padding-left: 14em;
+  }
+  
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0 2em;
+    
+    @media (min-width: 800px) {
+      display: flex;
+      padding: 0;
+    }
+    
+    li {
+      border: 1px solid #EDCDC2;
+      line-height: 1.5em;
+      margin-bottom: 2em;
+      padding: 2em;
+
+      @media (min-width: 800px) {
+        border: none;
+        margin-bottom: 0;
+        width: ~"calc(100% / 3)";
+      }
+      
+      div {
+        letter-spacing: 2px;
+        line-height: 1.5em;
+        font-size: 13px;
+        
+        @media (min-width: 800px) {
+          line-height: 2em;
+          font-size: 15px;
+        }
+        
+        &.icon {
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-size: contain;
+          box-sizing: border-box;
+          padding: 25%;
+          position: relative;
+          width: 100%;
+
+          @media (min-width: 800px) {
+            padding: 50%;
+          }
+          
+          &:before {
+            background-repeat: no-repeat;
+            background-size: contain;
+            content: "";
+            height: 100%;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            transition: 0.5s opacity;
+            left: 0;
+            width: 100%;
+          }
+            
+          &:hover:before {
+            opacity: 1;
+          }
+        
+          &.icon-1 {
+            background-image: url(https://s3.eu-west-3.amazonaws.com/anasolsona/what-1.jpg);
+            
+            &:before {
+              background-image: url(https://s3.eu-west-3.amazonaws.com/anasolsona/what-1-hover.jpg);
+            }
+          }
+        
+          &.icon-2 {
+            background-image: url(https://s3.eu-west-3.amazonaws.com/anasolsona/what-2.jpg);
+            
+            &:before {
+              background-image: url(https://s3.eu-west-3.amazonaws.com/anasolsona/what-2-hover.jpg);
+            }
+          }
+        
+          &.icon-3 {
+            background-image: url(https://s3.eu-west-3.amazonaws.com/anasolsona/what-3.jpg);
+            
+            &:before {
+              background-image: url(https://s3.eu-west-3.amazonaws.com/anasolsona/what-3-hover.jpg);
+            }
+          }
+        }
+        
+        &:last-of-type {
+          margin-top: 2em;
+        }
+      }
+    }
+  }
+}
+
+section.work {
+  a.button {
+    margin-top: 1em;
+  }
+  
+  ul {
+    box-sizing: border-box;
+    list-style: none;
+    padding: 0 2em;
+    
+    @media (min-width: 800px) {
+      column-gap: 2em;
+      column-count: 3;
+      display: block;
+      padding: 9em;
+      padding-left: 14em;
+    }
+    
+    li {
+      margin-bottom: 2em;
+    }
+  }
+  
+  a:not(.button) {
+    display: block;
+    position: relative;
+    
+    &:hover div {
+      opacity: 1;
+    }
+    
+    div {
+      background: rgba(255,255,255,0.95);
+      box-sizing: border-box;
+      opacity: 0;
+      font-family: 'Cantata One', serif;
+      height: 100%;
+      left: 0;
+      padding: 2em;
+      position: absolute;
+      text-align: center;
+      transition: 0.5s opacity;
+      top: 0;
+      width: 100%;
+      
+      span {
+        font-size: 32px;
+        left: 0;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+      }
+    }
+    
+    img {
+      display: block;
+      width: 100%;
+      
+      @media (max-width: 799px) {
+        object-fit: cover;
+        width: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,128 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/styles.processed.css" />
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Ana Solsona</title>
+  </head>
+  <body class="index">
+    <nav>
+      <a href="/who.html">Whod</a>
+      <a href="/what.html">What</a>
+      <a href="/work.html">Work</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+    
+    <section class="intro">
+      <div>
+        <img class="emblem" src="/images/emblem.gif" />
+        <img class="wordmark" src="/images/wordmark.png" />
+        <div class="description">Graphic designer and <span id="position">web designer</span></div>
+      </div>
+      <img class="portrait" src="https://s3.eu-west-3.amazonaws.com/anasolsona/portrait.jpg" />
+    </section>
+    
+    <section class="who">
+      <div>
+        <h2>Who</h2>
+        <p>My name is Ana Solsona and I'm a freelance Graphic Designer and Art Director with a passion for the details.</p>
+        <p>My practice is based upon creating long-standing collaborative partnerships built on honesty and purpose. I work on an international level and my work ranges from digital design and branding to art direction.</p>
+        <p>In my former career I had the privilege of collaborate with brands and agencies such as Proximity Worldwide - BBDO Group, Chips Ahoy!, Oreo, Affinity-Petcare, Grupo Mass Chile, Integral Innovation, Gas Natural Fenosa, Pippa Lynn and many more.</p>
+      </div>
+    </section>
+    
+    <section class="what">
+      <h2>What</h2>
+      <div class="carousel">
+        <ul>
+          <li>
+            <div class="icon icon-1"></div>
+            <div>I deliver digital, print and brand experiences. Working alongside a wide range of clients, from global established companies to start-ups, my aim is to create exciting and meaningful experiences, both online and offline.</div>
+          </li>
+          <li>
+            <div class="icon icon-2"></div>
+            <div>Think of me as more of a creative partner than a resource. This means we have shared perspective on how we can work together to achieve your goals.</div>
+          </li>
+          <li>
+            <div class="icon icon-3"></div>
+            <div>Ana Solsona studio develops visual identities, brand strategies, websites, printed design and packaging, art direction, communication and many more.</div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="work">
+      <div>
+        <h2>Work</h2>
+        <div class="carousel listings">
+          <ul>
+            <li>
+              <a href="/projects/integral.html">
+                <div><span>Integral Innovation Experts</span></div>
+                <img src="/images/projects/integral/preview-3.png" />
+              </a>
+            </li>
+            <li>
+              <a href="/projects/mythology.html">
+                <div><span>Mythology</span></div>
+                <img src="/images/projects/mythology/preview-1.png" />
+              </a>
+            </li>
+            <li>
+              <a href="/projects/wines-of-chile.html">
+                <div><span>Wines of Chile</span></div>
+                <img src="/images/projects/wines-of-chile/preview-2.png" />
+              </a>
+            </li>
+            <li>
+              <a href="/projects/that-brand.html">
+                <div><span>That Brand</span></div>
+                <img src="/images/projects/that-brand/preview-2.png" />
+              </a>
+            </li>
+            <li>
+              <a href="/projects/mythology.html">
+                <div><span>Mythology</span></div>
+                <img src="/images/projects/mythology/preview-2.png" />
+              </a>
+            </li>
+            <li>
+              <a href="/projects/that-brand.html">
+                <div><span>That Brand</span></div>
+                <img src="/images/projects/that-brand/preview-3.png" />
+              </a>
+            </li>
+          </ul>
+        </div>
+        <a class="button" href="/work.html">View all work</a>
+      </div>
+    </section>
+    <section class="contact">
+      <div>
+        <h2>hola</h2>
+        <div>Want to create something great? Let's talk!</div>
+        <div class="email"><a href="mailto:ana.solsona.studio@gmail.com">ana.solsona.studio@gmail.com</a></div>
+      </div>
+    </section>
+    <script>
+      var positions = [
+        'art director',
+        'UX designer',
+        'web designer',
+        'yogi'
+      ];
+      
+      var i = 0;
+      
+      setInterval(function() {
+        $('#position').html(positions[i]);
+        
+        i++;
+        
+        if (i >= positions.length) {
+          i = 0;
+        }
+      }, 2000);
+    </script>
+  </body>
+</html>
