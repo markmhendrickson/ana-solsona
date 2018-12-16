@@ -58,6 +58,7 @@ body {
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   margin: 0;
+  overscroll-behavior: none;
   padding: 0;
   text-rendering: geometricPrecision;
   transition: 0.5s background;
@@ -80,19 +81,37 @@ body {
     background: #EA9375;
   }
   
-  &.bread-butter:not(.scrolled) {
-    background: #F7CAC9;
-    
-    nav img {
-      filter: invert(100%);
+  &.bread-butter {
+    @media (min-width: 800px) {
+      section.framed.sample {
+        img {
+          padding: 10px 12em;
+        }
+
+        &:nth-of-type(2) img {
+          padding-top: 6em;
+        }
+      }
+    }
+
+    &:not(.scrolled) {
+      background: #F7CAC9;
+      
+      nav img {
+        filter: invert(100%);
+      }
     }
   }
   
   &.integral:not(.scrolled) {
     background: #F7CAC9;
+
+    h1, div.subheader, div.summary ul li div:first-of-type, nav a {
+      color: #016988;
+    }
     
     nav img {
-      filter: invert(100%);
+      filter: hue-rotate(200deg) brightness(0.5) saturate(100%);
     }
   }
   
@@ -447,6 +466,7 @@ section.intro, section.who {
   }
   
   img.portrait {
+    align-self: stretch;
     height: 60vh;
     margin-top: 1em;
     max-width: 100%;
@@ -650,6 +670,11 @@ section.sample {
       padding-bottom: 2em;
     }
   }
+
+  div.columns {
+    max-width: 1014px;
+    margin: auto;
+  }
   
   &.columns {
     align-items: center;
@@ -744,6 +769,10 @@ section.what {
           padding: 25%;
           position: relative;
           width: 100%;
+
+          @media (min-width: 800px) {
+            padding: 35%;
+          }
           
           &:before {
             background-position: center center;

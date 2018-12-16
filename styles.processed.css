@@ -77,6 +77,7 @@ body {
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   margin: 0;
+  overscroll-behavior: none;
   padding: 0;
   text-rendering: geometricPrecision;
   transition: 0.5s background;
@@ -107,6 +108,14 @@ body.light-project:not(.scrolled) div.summary ul li:not(:first-child) {
 body.affinity-petcare-comunimals.scrolled {
   background: #EA9375;
 }
+@media (min-width: 800px) {
+  body.bread-butter section.framed.sample img {
+    padding: 10px 12em;
+  }
+  body.bread-butter section.framed.sample:nth-of-type(2) img {
+    padding-top: 6em;
+  }
+}
 body.bread-butter:not(.scrolled) {
   background: #F7CAC9;
 }
@@ -116,8 +125,14 @@ body.bread-butter:not(.scrolled) nav img {
 body.integral:not(.scrolled) {
   background: #F7CAC9;
 }
+body.integral:not(.scrolled) h1,
+body.integral:not(.scrolled) div.subheader,
+body.integral:not(.scrolled) div.summary ul li div:first-of-type,
+body.integral:not(.scrolled) nav a {
+  color: #016988;
+}
 body.integral:not(.scrolled) nav img {
-  filter: invert(100%);
+  filter: hue-rotate(200deg) brightness(0.5) saturate(100%);
 }
 body.mythology:not(.scrolled) {
   background: #CBC7C2;
@@ -462,6 +477,7 @@ section.who > * {
 }
 section.intro img.portrait,
 section.who img.portrait {
+  align-self: stretch;
   height: 60vh;
   margin-top: 1em;
   max-width: 100%;
@@ -730,6 +746,10 @@ section.sample > div {
     padding-bottom: 2em;
   }
 }
+section.sample div.columns {
+  max-width: 1014px;
+  margin: auto;
+}
 section.sample.columns {
   align-items: center;
   display: flex;
@@ -818,6 +838,11 @@ section.what ul li div.icon {
   padding: 25%;
   position: relative;
   width: 100%;
+}
+@media (min-width: 800px) {
+  section.what ul li div.icon {
+    padding: 35%;
+  }
 }
 section.what ul li div.icon:before {
   background-position: center center;
