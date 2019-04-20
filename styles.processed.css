@@ -31,6 +31,34 @@
 ::selection {
   background: #FADCDA;
 }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(100vh);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .columns {
   display: flex;
   flex-wrap: wrap;
@@ -44,7 +72,6 @@
     flex-wrap: nowrap;
   }
   .columns > * {
-    overflow-y: auto;
     width: 50%;
   }
 }
@@ -152,6 +179,12 @@ body.that-brand:not(.scrolled) nav img {
 body.wines-of-chile:not(.scrolled) {
   background: #D59A99;
 }
+div.parallax {
+  perspective: 2px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
 body.index h2 {
   color: #F8D1CF;
   text-align: center;
@@ -242,7 +275,6 @@ header {
   display: flex;
   padding: 24px;
   padding-left: 26px;
-  padding-bottom: 0;
 }
 @media (min-width: 800px) {
   header {
@@ -402,20 +434,16 @@ p {
   }
 }
 section.who {
+  background: white;
   display: flex;
-  min-height: 90vh;
+  min-height: 100vh;
 }
 section.who > div {
-  padding: 0 2em;
-}
-@media (max-width: 799px) {
-  section.who > div {
-    margin: 2em auto;
-  }
+  padding: 2em;
 }
 @media (min-width: 800px) {
   section.who > div {
-    padding: 6em 6em 6em 12em;
+    padding: 4em 8em;
   }
 }
 @media (min-width: 1000px) and (max-width: 1200px) {
@@ -437,6 +465,15 @@ section.who > div {
     display: none;
   }
 }
+@media (min-width: 800px) {
+  body.who section.who > div {
+    padding-left: 12em;
+  }
+}
+section {
+  animation: fadeIn 0.5s forwards;
+  opacity: 0;
+}
 section.contact {
   justify-content: center;
   min-height: 100vh;
@@ -445,11 +482,14 @@ section.contact {
   color: #F8D1CF;
   display: flex;
   margin: auto;
+  min-height: calc(100vh - 88px);
+  padding: 2em;
   text-align: center;
 }
 @media (min-width: 800px) {
   section.contact {
-    padding: 8em;
+    min-height: 100vh;
+    padding: 4em 8em;
   }
 }
 section.contact h1,
@@ -520,7 +560,6 @@ section.intro > * {
     flex-wrap: nowrap;
   }
   section.intro > * {
-    overflow-y: auto;
     width: 50%;
   }
 }
@@ -544,6 +583,13 @@ section.intro > div > * {
     width: 18em;
   }
 }
+section.intro img.emblem {
+  animation: slideUp 0.5s forwards;
+}
+section.intro img.wordmark {
+  animation: fadeIn 0.5s forwards 0.5s;
+  opacity: 0;
+}
 section.intro img.emblem,
 section.intro img.wordmark {
   box-sizing: border-box;
@@ -566,9 +612,19 @@ section.intro div.description span {
   color: #FADCDA;
   font-weight: 500;
 }
+section.intro div.description span#position {
+  display: block;
+  height: 1.5em;
+}
 section.who > * {
   max-width: 40em;
   margin: auto;
+}
+div.parallax section.intro {
+  height: 100vh;
+  position: relative;
+  transform: translateZ(-1px) scale(1.5);
+  z-index: -1;
 }
 section.intro > *,
 body.who section.who > * {
@@ -589,6 +645,9 @@ body.who section.who img.portrait {
   margin-top: 1em;
   max-width: 100%;
   object-fit: cover;
+  opacity: 0;
+  overflow: hidden;
+  position: relative;
   width: 100%;
 }
 @media (min-width: 800px) {
@@ -598,6 +657,9 @@ body.who section.who img.portrait {
     margin: 0;
     width: 50%;
   }
+}
+img.portrait.shown.viewed {
+  animation: fadeIn 0.5s forwards 0.5s;
 }
 @media (max-width: 799px) {
   body.who section.who h1,
@@ -632,7 +694,6 @@ body.who section.who img.portrait {
   body.what section.project h2,
   body.work section.project h2,
   body.project section.project h2 {
-    display: block;
     margin: 1.5em 0;
     order: 1;
   }
@@ -873,12 +934,17 @@ section.sample.images img:last-of-type {
   border-right: 0;
 }
 section.what {
+  align-items: center;
+  display: flex;
   box-sizing: border-box;
-  min-height: 80vh;
+  min-height: 100vh;
+}
+section.what > div {
+  width: 100%;
 }
 @media (min-width: 800px) {
   section.what {
-    padding: 8em;
+    padding: 4em 8em;
   }
 }
 section.what ul {
@@ -974,10 +1040,17 @@ section.what ul li div.icon.icon-3:before {
 section.what ul li div:last-of-type {
   margin-top: 2em;
 }
+section.work {
+  align-items: center;
+  display: flex;
+}
 @media (min-width: 800px) {
   section.work {
-    padding: 8em;
+    padding: 4em 8em;
   }
+}
+section.work > div {
+  width: 100%;
 }
 section.work a.button {
   margin-top: 1em;
@@ -997,7 +1070,11 @@ section.work ul {
 section.work ul li {
   display: inline-block;
   margin-bottom: 1em;
+  opacity: 0;
   width: 100%;
+}
+section.work ul li.shown {
+  animation: fadeUp 0.5s forwards;
 }
 section.work a.button {
   display: none;

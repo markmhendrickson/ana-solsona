@@ -7,6 +7,40 @@
   background: @color-light-pink;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(100vh);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .columns {
   display: flex;
   flex-wrap: wrap;
@@ -20,7 +54,7 @@
     flex-wrap: nowrap;
     
     >* {
-      overflow-y: auto;
+      //overflow-y: auto;
       width: 50%;
     }
   }
@@ -136,6 +170,13 @@ body {
   }
 }
 
+div.parallax {
+  perspective: 2px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
 body.index {
   h2 {
     color: #F8D1CF;
@@ -229,7 +270,6 @@ header {
   display: flex;
   padding: 24px;
   padding-left: 26px;
-  padding-bottom: 0;
 
   @media (min-width: 800px) {
     display: none;
@@ -400,18 +440,16 @@ p {
 }
   
 section.who {
+  background: white;
   display: flex;
-  min-height: 90vh;
+  min-height: 100vh;
 
   >div {
-    padding: 0 2em;
-
-    @media (max-width: 799px) {
-      margin: 2em auto;
-    }
+    padding: 2em;
 
     @media (min-width: 800px) {
-      padding: 6em 6em 6em 12em;
+      padding: 4em 8em;
+      
     }
   }
 
@@ -438,6 +476,17 @@ section.who {
   }
 }
 
+body.who section.who > div {
+  @media (min-width: 800px) {
+    padding-left: 12em;
+  }
+}
+
+section {
+  animation: fadeIn 0.5s forwards;
+  opacity: 0;
+}
+
 section.contact {
   .viewport();
   align-items: center;
@@ -445,10 +494,13 @@ section.contact {
   color: #F8D1CF;
   display: flex;
   margin: auto;
+  min-height: ~"calc(100vh - 88px)";
+  padding: 2em;
   text-align: center;
 
   @media (min-width: 800px) {
-    padding: 8em;
+    min-height: 100vh;
+    padding: 4em 8em;
   }
   
   h1, h2 {
@@ -531,6 +583,15 @@ section.intro {
       }
     }
   }
+
+  img.emblem {
+    animation: slideUp 0.5s forwards;
+  }
+
+  img.wordmark {
+    animation: fadeIn 0.5s forwards 0.5s;
+    opacity: 0;
+  }
   
   img.emblem, img.wordmark {
     box-sizing: border-box;
@@ -553,12 +614,24 @@ section.intro {
       color: @color-light-pink;
       font-weight: 500;
     }
+
+    span#position {
+      display: block;
+      height: 1.5em;
+    }
   }
 }
 
 section.who > * {
   max-width: 40em;
   margin: auto;
+}
+
+div.parallax section.intro {
+  height: 100vh;
+  position: relative;
+  transform: translateZ(-1px) scale(1.5);
+  z-index: -1;
 }
 
 section.intro, body.who section.who {
@@ -578,6 +651,9 @@ section.intro, body.who section.who {
     margin-top: 1em;
     max-width: 100%;
     object-fit: cover;
+    opacity: 0;
+    overflow: hidden;
+    position: relative;
     width: 100%;
 
     @media (min-width: 800px) {
@@ -588,11 +664,14 @@ section.intro, body.who section.who {
   }
 }
 
+img.portrait.shown.viewed {
+  animation: fadeIn 0.5s forwards 0.5s;
+}
+
 body.who, body.what, body.work, body.project {
   section.who, section.what, section.work, section.project {
     @media (max-width: 799px) {
       h1, h2 {
-        display: block;
         margin: 1.5em 0;
         order: 1;
       }
@@ -822,11 +901,17 @@ section.sample {
 }
 
 section.what {
+  align-items: center;
+  display: flex;
   box-sizing: border-box;
-  min-height: 80vh;
+  min-height: 100vh;
+
+  >div {
+    width: 100%;
+  }
   
   @media (min-width: 800px) {
-    padding: 8em;
+    padding: 4em 8em;
   }
   
   ul {
@@ -933,8 +1018,15 @@ section.what {
 }
 
 section.work {
+  align-items: center;
+  display: flex;
+
   @media (min-width: 800px) {
-    padding: 8em;
+    padding: 4em 8em;
+  }
+
+  >div {
+    width: 100%;
   }
 
   a.button {
@@ -955,7 +1047,12 @@ section.work {
     li {
       display: inline-block;
       margin-bottom: 1em;
+      opacity: 0;
       width: 100%;
+
+      &.shown {
+        animation: fadeUp 0.5s forwards;
+      }
     }
   }
 
