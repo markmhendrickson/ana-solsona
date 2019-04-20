@@ -1,17 +1,26 @@
 <html>
   <head>
-    <link rel="stylesheet" href="styles.processed.css" />
+    <link rel="stylesheet" href="styles.processed.css?v=1" />
     <meta name="viewport" content="width=device-width">
     <meta name="viewport" content="initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>Ana Solsona</title>
   </head>
   <body class="index">
+    <header>
+      <img class="menu" src="images/menu.svg" onclick="$('nav').toggleClass('shown');" />
+    </header>
     <nav>
-      <a href="who.html">Who</a>
-      <a href="what.html">What</a>
-      <a href="work.html">Work</a>
-      <a href="contact.html">Contact</a>
+      <img class="close" src="images/close.svg" onclick="$('nav').toggleClass('shown');" />
+      <a class="logo" href="index.html">
+        <img class="gem-blue" src="images/gem-blue.svg" />
+      </a>
+      <div>
+        <a href="who.html">Who</a>
+        <a href="what.html">What</a>
+        <a href="work.html">Work</a>
+        <a href="contact.html">Contact</a>
+      </div>
     </nav>
     
     <section class="intro">

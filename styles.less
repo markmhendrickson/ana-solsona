@@ -97,7 +97,7 @@ body {
     &:not(.scrolled) {
       background: #F7CAC9;
       
-      nav img {
+      header img, nav img {
         filter: invert(100%);
       }
     }
@@ -110,7 +110,7 @@ body {
       color: #016988;
     }
     
-    nav img {
+    header img, nav img {
       filter: hue-rotate(200deg) brightness(0.5) saturate(100%);
     }
   }
@@ -126,7 +126,7 @@ body {
   &.that-brand:not(.scrolled) {
     background: #EDCDC2;
     
-    nav img {
+    header img, nav img {
       filter: invert(100%);
     }
   }
@@ -225,66 +225,163 @@ h2 {
   }
 }
 
+header {
+  display: flex;
+  padding: 24px;
+  padding-left: 26px;
+  padding-bottom: 0;
+
+  @media (min-width: 800px) {
+    display: none;
+  }
+
+  img {
+    height: 40px;
+    width: 40px;
+  }
+
+  img.menu {
+    margin-left: auto;
+  }
+}
+
 nav {
-  display: none;
+  align-items: center;
+  background: #F7CAC9;
+  height: 0;
+  left: 0;
   position: fixed;
   font-size: 0.8em;
-  left: 48px;
+  opacity: 0;
+  overflow: hidden;
   text-align: center;
-  top: 48px;
+  top: 0;
+  transition: height 0.5s, opacity 0.5s;
+  width: 100%;
   z-index: 100;
   
   @media (min-width: 800px) {
+    background: none;
     display: block;
+    height: auto;
+    left: 48px;
+    opacity: 1;
+    overflow: visible;
+    top: 48px;
+    width: auto;
+
+    &.shown {
+      display: block;
+    }
+  }
+
+  &.shown {
+    display: flex;
+    height: 100%;
+    opacity: 1;
+  }
+
+  div {
+    width: 100%;
   }
   
   img {
     display: block;
     margin: auto;
+    margin-bottom: 3em;
     transition: 0.5s filter;
     width: 40px;
-    
-    &:first-child {
-      margin-bottom: 3em;
-    }
   
-    &:not(:first-child) {
-      margin-bottom: 3em;
+    &.wordmark {
       width: 13px;
       
       @media (max-height: 775px) {
         display: none;
       }
     }
+
+    &.close {
+      height: 32px;
+      position: absolute;
+      right: 28px;
+      top: 28px;
+      width: 32px;
+
+      @media (min-width: 800px) {
+        display: none;
+      }
+    }
+  }
+
+  a.logo {
+    img.gem-blue {
+      display: none;
+    }
+
+    img.gem-pink, img.workmark {
+      display: block;
+    }
+
+    @media (max-width: 799px) {
+      left: 2em;
+      position: absolute;
+      top: 2em;
+      width: 40px;
+
+      img.gem-blue {
+        display: block;
+      }
+
+      img.gem-pink, img.wordmark {
+        display: none;
+      }
+    }
   }
   
   a:not(.logo) {
+    box-sizing: border-box;
+    color: #016988;
     display: block;
+    font-family: 'Cantata One', serif;
+    font-size: 34px;
     font-weight: 400;
     margin: auto;
     letter-spacing: 2.13px;
-    padding-bottom: 2em;
+    padding: 1em;
     position: relative;
-    text-orientation: sideways;
-    text-transform: uppercase;
     transition: 0.5s color, 0.5s opacity;
-    writing-mode: vertical-rl;
+    width: 100%;
     z-index: 50;
+
+    @media (min-width: 800px) {
+      color: #210402;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      padding: 0;
+      padding-bottom: 2em;
+      text-orientation: sideways;
+      text-transform: uppercase;
+      width: 16px;
+      writing-mode: vertical-rl;
+    }
     
     &.selected {
       font-weight: 500;
     
-      &:before {
-        background: url(https://s3.eu-west-3.amazonaws.com/anasolsona/nav-selected.svg) no-repeat center center;
-        background-size: contain;
-        content: "";
-        left: 50%;
-        height: 100%;
-        position: absolute;
-        top: ~"calc(50% - 1em)";
-        transform: translateX(-50%) translateY(-50%);
-        width: 100%;
-        z-index: 45;
+      @media (min-width: 800px) {
+        &:before {
+          background: url(https://s3.eu-west-3.amazonaws.com/anasolsona/nav-selected.svg) no-repeat center center;
+          background-size: contain;
+          content: "";
+          left: 50%;
+          height: 100%;
+          position: absolute;
+          top: ~"calc(50% - 1em)";
+          transform: translateX(-50%) translateY(-50%);
+          width: 100%;
+          z-index: 45;
+        }
       }
     }
   }
