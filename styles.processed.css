@@ -2,31 +2,31 @@
   font-family: 'Cantata One';
   font-style: normal;
   font-weight: 400;
-  src: local('Cantata One'), local('CantataOne-Regular'), url(https://fonts.gstatic.com/s/cantataone/v7/PlI5Fl60Nb5obNzNe2jslWxDvcQ.ttf) format('truetype');
+  src: local('Cantata One'), local('CantataOne-Regular'), url(https://fonts.gstatic.com/s/cantataone/v8/PlI5Fl60Nb5obNzNe2jslWxDvcQ.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 200;
-  src: local('Montserrat ExtraLight'), local('Montserrat-ExtraLight'), url(https://fonts.gstatic.com/s/montserrat/v12/JTURjIg1_i6t8kCHKm45_aZA3gnD-w.ttf) format('truetype');
+  src: local('Montserrat ExtraLight'), local('Montserrat-ExtraLight'), url(https://fonts.gstatic.com/s/montserrat/v13/JTURjIg1_i6t8kCHKm45_aZA3gnD-w.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 300;
-  src: local('Montserrat Light'), local('Montserrat-Light'), url(https://fonts.gstatic.com/s/montserrat/v12/JTURjIg1_i6t8kCHKm45_cJD3gnD-w.ttf) format('truetype');
+  src: local('Montserrat Light'), local('Montserrat-Light'), url(https://fonts.gstatic.com/s/montserrat/v13/JTURjIg1_i6t8kCHKm45_cJD3gnD-w.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
-  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v12/JTUSjIg1_i6t8kCHKm459Wlhzg.ttf) format('truetype');
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v13/JTUSjIg1_i6t8kCHKm459Wlhzg.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 500;
-  src: local('Montserrat Medium'), local('Montserrat-Medium'), url(https://fonts.gstatic.com/s/montserrat/v12/JTURjIg1_i6t8kCHKm45_ZpC3gnD-w.ttf) format('truetype');
+  src: local('Montserrat Medium'), local('Montserrat-Medium'), url(https://fonts.gstatic.com/s/montserrat/v13/JTURjIg1_i6t8kCHKm45_ZpC3gnD-w.ttf) format('truetype');
 }
 ::selection {
   background: #FADCDA;
@@ -160,14 +160,6 @@ body.index h2 {
     margin-top: 4em;
   }
 }
-@media (min-width: 800px) {
-  body.index section.who,
-  body.index section.contact,
-  body.index section.what,
-  body.index section.work {
-    display: none;
-  }
-}
 a.next {
   bottom: 20%;
   display: block;
@@ -236,7 +228,12 @@ h2 {
   font-size: 29px;
   font-weight: normal;
   line-height: 1.2em;
-  margin-bottom: 28px;
+  margin-bottom: 32px;
+}
+@media (min-width: 800px) {
+  h2 {
+    margin-bottom: 64px;
+  }
 }
 nav {
   display: none;
@@ -310,8 +307,17 @@ p {
     line-height: 32px;
   }
 }
+section.who {
+  display: flex;
+  min-height: 90vh;
+}
 section.who > div {
   padding: 0 2em;
+}
+@media (max-width: 799px) {
+  section.who > div {
+    margin: 2em auto;
+  }
 }
 @media (min-width: 800px) {
   section.who > div {
@@ -337,11 +343,6 @@ section.who > div {
     display: none;
   }
 }
-@media (max-width: 799px) {
-  body.who section.who > div {
-    margin: 2em auto;
-  }
-}
 section.contact {
   justify-content: center;
   min-height: 100vh;
@@ -350,8 +351,12 @@ section.contact {
   color: #F8D1CF;
   display: flex;
   margin: auto;
-  padding: 2em;
   text-align: center;
+}
+@media (min-width: 800px) {
+  section.contact {
+    padding: 8em;
+  }
 }
 section.contact h1,
 section.contact h2 {
@@ -377,30 +382,32 @@ section.contact div {
 section.contact div.email {
   margin-top: 1em;
 }
-div.carousel {
-  overflow: auto;
-  width: 100%;
-}
-div.carousel ul {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0 2em;
-  width: fit-content;
-}
-div.carousel ul li {
-  display: block;
-  box-sizing: border-box;
-  margin-bottom: 1em;
-  width: calc(90vw - 4em) !important;
-}
-div.carousel ul li:not(:last-child) {
-  margin-right: 2em;
-}
-div.carousel ul li img {
-  height: 60vh;
-  object-fit: cover;
-  width: 100%;
+@media (max-width: 799px) {
+  div.carousel {
+    overflow: auto;
+    width: 100%;
+  }
+  div.carousel ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0 2em;
+    width: fit-content;
+  }
+  div.carousel ul li {
+    display: block;
+    box-sizing: border-box;
+    margin-bottom: 1em;
+    width: calc(90vw - 4em) !important;
+  }
+  div.carousel ul li:not(:last-child) {
+    margin-right: 2em;
+  }
+  div.carousel ul li img {
+    height: 60vh;
+    object-fit: cover;
+    width: 100%;
+  }
 }
 section.intro {
   flex-wrap: wrap;
@@ -465,18 +472,24 @@ section.intro div.description span {
   color: #FADCDA;
   font-weight: 500;
 }
-section.intro > *,
 section.who > * {
+  max-width: 40em;
+  margin: auto;
+}
+section.intro > *,
+body.who section.who > * {
   box-sizing: border-box;
 }
 @media (min-width: 800px) {
   section.intro > *,
-  section.who > * {
+  body.who section.who > * {
+    margin: auto;
+    max-width: unset;
     width: 50%;
   }
 }
 section.intro img.portrait,
-section.who img.portrait {
+body.who section.who img.portrait {
   align-self: stretch;
   height: 60vh;
   margin-top: 1em;
@@ -486,29 +499,11 @@ section.who img.portrait {
 }
 @media (min-width: 800px) {
   section.intro img.portrait,
-  section.who img.portrait {
+  body.who section.who img.portrait {
     height: 100vh;
     margin: 0;
     width: 50%;
   }
-}
-body.who section.who h2,
-body.what section.who h2,
-body.work section.who h2,
-body.project section.who h2,
-body.who section.what h2,
-body.what section.what h2,
-body.work section.what h2,
-body.project section.what h2,
-body.who section.work h2,
-body.what section.work h2,
-body.work section.work h2,
-body.project section.work h2,
-body.who section.project h2,
-body.what section.project h2,
-body.work section.project h2,
-body.project section.project h2 {
-  display: none;
 }
 @media (max-width: 799px) {
   body.who section.who h1,
@@ -785,10 +780,11 @@ section.sample.images img:last-of-type {
 }
 section.what {
   box-sizing: border-box;
+  min-height: 80vh;
 }
 @media (min-width: 800px) {
   section.what {
-    padding: 2em 8em 2em 14em;
+    padding: 8em;
   }
 }
 section.what ul {
@@ -884,6 +880,11 @@ section.what ul li div.icon.icon-3:before {
 section.what ul li div:last-of-type {
   margin-top: 2em;
 }
+@media (min-width: 800px) {
+  section.work {
+    padding: 8em;
+  }
+}
 section.work a.button {
   margin-top: 1em;
 }
@@ -897,14 +898,20 @@ section.work ul {
     column-gap: 2em;
     column-count: 3;
     display: block;
-    padding: 9em;
-    padding-left: 14em;
   }
 }
 section.work ul li {
   display: inline-block;
   margin-bottom: 1em;
   width: 100%;
+}
+section.work a.button {
+  display: none;
+}
+@media (max-width: 799px) {
+  section.work a.button {
+    display: block;
+  }
 }
 section.work a:not(.button) {
   display: block;
