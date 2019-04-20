@@ -179,11 +179,13 @@ body.that-brand:not(.scrolled) nav img {
 body.wines-of-chile:not(.scrolled) {
   background: #D59A99;
 }
-div.parallax {
-  perspective: 2px;
-  height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
+@media (min-width: 800px) {
+  div.parallax {
+    perspective: 2px;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
 }
 body.index h2 {
   color: #F8D1CF;
