@@ -179,6 +179,10 @@ body.that-brand:not(.scrolled) nav img {
 body.wines-of-chile:not(.scrolled) {
   background: #D59A99;
 }
+div.parallax {
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
 @media (min-width: 800px) {
   div.parallax {
     perspective: 2px;
