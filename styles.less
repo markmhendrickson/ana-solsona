@@ -170,11 +170,13 @@ body {
   }
 }
 
-div.parallax {
-  perspective: 2px;
-  height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
+@media (min-width: 800px) {
+  div.parallax {
+    perspective: 2px;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
 }
 
 body.index {
