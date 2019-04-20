@@ -620,11 +620,13 @@ section.who > * {
   max-width: 40em;
   margin: auto;
 }
-div.parallax section.intro {
-  height: 100vh;
-  position: relative;
-  transform: translateZ(-1px) scale(1.5);
-  z-index: -1;
+@media (min-width: 800px) {
+  div.parallax section.intro {
+    height: 100vh;
+    position: relative;
+    transform: translateZ(-1px) scale(1.5);
+    z-index: -1;
+  }
 }
 section.intro > *,
 body.who section.who > * {
