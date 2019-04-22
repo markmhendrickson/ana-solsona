@@ -96,6 +96,10 @@ body {
   padding: 0;
   text-rendering: geometricPrecision;
   transition: 0.5s background;
+
+  @media (min-width: 800px) {
+    padding-left: 4em;
+  }
   
   &.project.scrolled {
     color: black;
@@ -447,16 +451,18 @@ p {
 }
   
 section.who {
-  background: white;
   display: flex;
   min-height: 100vh;
 
   >div {
     padding: 2em;
 
+    &:first-child {
+      background: white;
+    }
+
     @media (min-width: 800px) {
       padding: 4em 8em;
-      
     }
   }
 
@@ -483,9 +489,30 @@ section.who {
   }
 }
 
-body.who section.who > div {
+body.index {
   @media (min-width: 800px) {
-    padding-left: 12em;
+    section.intro {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      z-index: -1;
+    }
+
+    section.who {
+      justify-content: flex-start;
+      margin-top: 100vh;
+      z-index: 1;
+
+      div {
+        margin: unset;
+        width: calc(50% - 6em);
+      }
+    }
+
+    section.what, section.work, section.contact {
+      background: white;
+    }
   }
 }
 
@@ -643,7 +670,7 @@ section.who > * {
   }
 }
 
-section.intro, body.who section.who {
+section.intro, section.who {
   >* {
     box-sizing: border-box;
     
@@ -703,7 +730,8 @@ section.project {
   text-align: center;
   
   @media (min-width: 800px) {
-    padding: 6em 6em 0 12em;
+    padding: 6em;
+    padding-left: 10em;
   }
   
   h1 {
@@ -779,6 +807,10 @@ section.project {
 }
 
 section.sample {
+  @media (min-width: 800px) {
+    margin-left: -4em;
+  }
+
   &.framed img {
     padding: 3em 0;
 

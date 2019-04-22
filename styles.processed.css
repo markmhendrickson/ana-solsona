@@ -109,6 +109,11 @@ body {
   text-rendering: geometricPrecision;
   transition: 0.5s background;
 }
+@media (min-width: 800px) {
+  body {
+    padding-left: 4em;
+  }
+}
 body.project.scrolled {
   color: black;
 }
@@ -440,12 +445,14 @@ p {
   }
 }
 section.who {
-  background: white;
   display: flex;
   min-height: 100vh;
 }
 section.who > div {
   padding: 2em;
+}
+section.who > div:first-child {
+  background: white;
 }
 @media (min-width: 800px) {
   section.who > div {
@@ -472,8 +479,26 @@ section.who > div {
   }
 }
 @media (min-width: 800px) {
-  body.who section.who > div {
-    padding-left: 12em;
+  body.index section.intro {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+  }
+  body.index section.who {
+    justify-content: flex-start;
+    margin-top: 100vh;
+    z-index: 1;
+  }
+  body.index section.who div {
+    margin: unset;
+    width: calc(50% - 6em);
+  }
+  body.index section.what,
+  body.index section.work,
+  body.index section.contact {
+    background: white;
   }
 }
 section {
@@ -635,19 +660,19 @@ section.who > * {
   }
 }
 section.intro > *,
-body.who section.who > * {
+section.who > * {
   box-sizing: border-box;
 }
 @media (min-width: 800px) {
   section.intro > *,
-  body.who section.who > * {
+  section.who > * {
     margin: auto;
     max-width: unset;
     width: 50%;
   }
 }
 section.intro img.portrait,
-body.who section.who img.portrait {
+section.who img.portrait {
   align-self: stretch;
   height: 60vh;
   margin-top: 1em;
@@ -660,7 +685,7 @@ body.who section.who img.portrait {
 }
 @media (min-width: 800px) {
   section.intro img.portrait,
-  body.who section.who img.portrait {
+  section.who img.portrait {
     height: 100vh;
     margin: 0;
     width: 50%;
@@ -750,7 +775,8 @@ section.project {
 }
 @media (min-width: 800px) {
   section.project {
-    padding: 6em 6em 0 12em;
+    padding: 6em;
+    padding-left: 10em;
   }
 }
 section.project h1 {
@@ -827,6 +853,11 @@ section.project div.summary ul li div:first-of-type {
 }
 section.project div.summary ul li:not(:first-child) {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+@media (min-width: 800px) {
+  section.sample {
+    margin-left: -4em;
+  }
 }
 section.sample.framed img {
   padding: 3em 0;
