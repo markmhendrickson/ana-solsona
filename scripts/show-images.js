@@ -22,9 +22,18 @@ $(function() {
     }
   }
 
+  let showNav = function() {
+    if ($(window).scrollTop() > 500) {
+      $('.on-scroll').addClass('shown');
+    } else {
+      $('.on-scroll').removeClass('shown');
+    }
+  }
+
   let showAll = function() {
     showPortrait();
     showWorkListings();
+    showNav();
   }
 
   showAll();

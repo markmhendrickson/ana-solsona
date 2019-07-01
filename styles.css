@@ -31,6 +31,26 @@
 ::selection {
   background: #FADCDA;
 }
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    height: 0;
+  }
+  to {
+    opacity: 1;
+    height: 387.86px;
+  }
+}
+@keyframes fadeUp {
+  from {
+    opacity: 1;
+    height: 387.86px;
+  }
+  to {
+    opacity: 0;
+    height: 0;
+  }
+}
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -58,6 +78,15 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+.on-scroll {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.5s, opacity 0.5s;
+}
+.on-scroll.shown {
+  opacity: 1;
+  height: 387.86px;
 }
 .columns {
   display: flex;
