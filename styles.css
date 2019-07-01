@@ -544,7 +544,9 @@ section.contact div {
     font-size: 20px;
   }
 }
-section.contact div.email {
+section.contact div.email,
+section.contact div.linked-in,
+section.contact div.phone {
   margin-top: 1em;
 }
 @media (max-width: 799px) {

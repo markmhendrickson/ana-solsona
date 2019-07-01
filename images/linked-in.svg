@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0 0 17 0 17 15 0 15"></polygon>
+    </defs>
+    <g id="Page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="CONTACT" transform="translate(-721.000000, -593.000000)">
+            <g id="Group" transform="translate(722.000000, 594.000000)">
+                <g id="Group-3" transform="translate(11.000000, 10.000000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Clip-2"></g>
+                    <path d="M6.85630499,5.17222014 L6.85630499,15 L10.5557185,15 L10.5557185,9.62560839 C10.5557185,8.02929614 11.7478006,7.7990453 12.1085044,7.7990453 C12.4633431,7.7990453 13.4208211,8.14442156 13.4208211,9.62560839 L13.4208211,15 L17,15 L17,9.62560839 C17,6.54389742 15.5674487,5.17222014 13.7815249,5.17222014 C11.9882698,5.17222014 11.0322581,5.74223137 10.5557185,6.54389742 L10.5557185,5.17222014 L6.85630499,5.17222014 Z M0.104105572,15 L3.80351906,15 L3.80351906,5.17222014 L0.104105572,5.17222014 L0.104105572,15 Z M2.01612903,0 C0.75659824,0 0,0.724447772 0,1.68476226 C0,2.64928866 0.75659824,3.37373643 1.89002933,3.37373643 C3.14516129,3.37373643 3.89589443,2.64928866 3.89589443,1.68476226 C3.89589443,0.724447772 3.14516129,0 2.01612903,0 L2.01612903,0 Z" id="Fill-1" fill="#F8D1CF" mask="url(#mask-2)"></path>
+                </g>
+                <circle id="Oval" stroke="#F8D1CF" cx="19" cy="19" r="19"></circle>
+            </g>
+        </g>
+    </g>
+</svg>
