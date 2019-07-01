@@ -7,6 +7,20 @@
   background: @color-light-pink;
 }
 
+@keyframes cycleColors {
+  0% {
+    color: #F7CAC9;
+  }
+
+  33.33% {
+    color: #EDCDC2;
+  }
+
+  66.66% {
+    color: #D59A99;
+  }
+}
+
 @keyframes fadeDown {
   from {
     opacity: 0;
@@ -573,6 +587,8 @@ section.contact {
   }
   
   h1, h2 {
+    animation: cycleColors 1.5s infinite;
+    transition: color 0.5s;
     font-size: 5em;
     margin-top: 0;
     
